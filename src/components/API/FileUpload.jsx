@@ -1,8 +1,9 @@
 import React from 'react'
 import { ref, getDownloadURL, uploadBytesResumable, uploadBytes } from "firebase/storage";
 import { storage } from '../../firebase';
+import { addFiles } from './Firestore';
 
-const FileUpload = (file) => {
+const FileUpload = (file, setProgress) => {
     const storageRef = ref(storage, `files/${file.name}`);
     console.log(storageRef);
     const uploadTask = uploadBytesResumable(storageRef, file);
@@ -12,17 +13,14 @@ const FileUpload = (file) => {
         const progress = Math.round(
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100
         );
-        console.log(progress);
+        setProgress(progress);
       },
       (error) => {
         alert(error);
       },
-      (error) =>{
-        console.log(error);
-      },
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-            console.log(downloadURL);
+            addFiles(downloadURL);
         });
       }
     );

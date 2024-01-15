@@ -2,6 +2,7 @@ import React from 'react'
 import { UserAuth } from '../context/AuthContext'
 import NavBar from '../components/NavBar';
 import UploadFiles from '../components/files/UploadFiles';
+import ShowFiles from '../components/showFiles/ShowFiles';
 
 const Dashboard = () => {
 
@@ -14,6 +15,9 @@ const Dashboard = () => {
     </div>
     <div className='mt-20'>
     <UploadFiles />
+    </div>
+    <div>
+        <ShowFiles />
     </div>
     </div>
   )
