@@ -20,7 +20,7 @@ const FileUpload = (file, setProgress) => {
       },
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-            addFiles(downloadURL);
+            addFiles(downloadURL, file.name);
         });
       }
     );

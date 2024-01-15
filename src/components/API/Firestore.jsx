@@ -1,15 +1,26 @@
-import React, { useEffect, useState } from 'react'
-import { collection, addDoc, doc, updateDoc, getDoc, onSnapshot } from "firebase/firestore";
+import { collection, addDoc } from "firebase/firestore";
 import { database } from '../../firebase';
 
 const files = collection(database, "files");
 
-export const addFiles = (imageLink) => {
+export const addFiles = (imageLink, imageName) => {
     try {
         addDoc(files, {
           imageLink: imageLink,
+          imageName: imageName,
+          isFolder: false,
         });
       } catch (err) {
         console.log(err);
       }
 }
+
+export const addFolder = (payload) => {
+    try {
+      addDoc(files, {
+        ...payload,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
