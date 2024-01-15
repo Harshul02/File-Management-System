@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
+import { UserAuth } from '../context/AuthContext';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -11,6 +12,8 @@ const Login = () => {
         email: '',
         password: '',
       });
+
+      const {user, logIn} = UserAuth();
     
       const handleChange = (e) => {
         const { name, value } = e.target;
@@ -20,6 +23,15 @@ const Login = () => {
       const handleSubmit = async (e) => {
         e.preventDefault();
         
+        try{
+            await logIn(formData.email, formData.password);
+            toast.success("Login Success", 1000);
+            navigate('/dashboard');
+        }
+        catch(error){
+            toast.error(error.message);
+            console.log(error);
+        }
       };
 
     return (

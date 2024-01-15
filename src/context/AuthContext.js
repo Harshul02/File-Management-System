@@ -20,6 +20,7 @@ export function AuthContextProvider({ children }) {
 
     function logIn(email, password) {
         return signInWithEmailAndPassword(auth, email, password)
+        // console.log(auth.currentUser);
     }
 
     function logOut(){
