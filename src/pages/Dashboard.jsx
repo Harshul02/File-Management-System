@@ -7,6 +7,7 @@ import ShowFiles from '../components/showFiles/ShowFiles';
 const Dashboard = () => {
 
     const {user} = UserAuth();
+    console.log(user);
 
   return (
     <div>
