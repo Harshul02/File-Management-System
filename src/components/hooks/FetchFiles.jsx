@@ -5,12 +5,12 @@ import { database } from "../../firebase";
 let files = collection(database, "files");
 
 const FetchFiles = (parentId, userEmail) => {
-    console.log(parentId)
+    // console.log(parentId)
     const [fileList, setFileList] = useState([]);
-    console.log(userEmail);
+    // console.log(userEmail);
 
     const filterWithoutParent = (item) =>{
-        console.log(item, userEmail);
+        // console.log(item, userEmail);
         return item.parentId === "" && (item.userEmail === userEmail)
     }
     const filterWithParent = (item) =>{

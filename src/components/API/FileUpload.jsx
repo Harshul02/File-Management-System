@@ -5,7 +5,7 @@ import { addFiles } from './Firestore';
 
 const FileUpload = (file, setProgress, parentId, userEmail) => {
     const storageRef = ref(storage, `files/${file.name}`);
-    console.log(storageRef);
+    // console.log(storageRef);
     const uploadTask = uploadBytesResumable(storageRef, file);
     uploadTask.on(
       "state_changed",

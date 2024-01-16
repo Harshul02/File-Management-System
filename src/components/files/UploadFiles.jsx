@@ -11,12 +11,12 @@ const UploadFiles = ({parentId}) => {
     const [progress, setProgress] = useState(0);
     const [folderName, setFolderName] = useState("");
     const {user} = UserAuth();
-    console.log(user);
-    console.log(user?.email)
+    // console.log(user);
+    // console.log(user?.email)
 
     const handleUploadFile = async (event)=>{
         let file = event.target.files?.[0];
-        console.log(file);
+        // console.log(file);
         FileUpload(file, setProgress, parentId, user.email);
     }
 

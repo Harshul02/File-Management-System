@@ -36,7 +36,7 @@ const Signup = () => {
         }
         catch(error){
             toast.error("Error Signing In");
-            console.log(error);
+            // console.log(error);
         }
       };
 

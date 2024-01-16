@@ -9,12 +9,11 @@ import { database, storage  } from '../../firebase';
 import { ref, deleteObject } from 'firebase/storage';
 
 const ShowFiles = ({parentId}) => {
-    console.log(parentId)
     const navigate = useNavigate();
     const {user} = UserAuth();
-    console.log(user, user.email)
+    // console.log(user, user.email)
     const {fileList} = FetchFiles(parentId, user.email);
-    console.log(fileList);
+    // console.log(fileList);
 
     const files = collection(database, "files");
     
