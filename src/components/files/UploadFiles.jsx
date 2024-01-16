@@ -37,7 +37,7 @@ const UploadFiles = ({parentId}) => {
     <div >
     <div className='flex flex-row p-4 container mx-auto'>
       {/* Upload */}
-      <button onClick={() => {setIsFileVisible(!isFileVisible); setFolderVisible(false)}} className="btn btn-primary" >Add File</button>
+      <button onClick={() => {setIsFileVisible(!isFileVisible); setFolderVisible(false)}} className="btn btn-primary text-white" >Add File</button>
       {isFileVisible && <input onChange={(event) => {handleUploadFile(event)}} type="file" className='file-input w-full max-w-xs' />}
 
       <button className="btn btn-outline btn-primary mx-3" onClick={() => {

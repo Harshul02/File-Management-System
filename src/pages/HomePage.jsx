@@ -26,7 +26,7 @@ const HomePage = () => {
         </div>
       </div>
       <div className='absolute bottom-0 w-full mt-auto'>
-      <div className="text-xl py-8 bg-blue-300 text-center text-white h-full" style={{fontFamily: "'Salsa', cursive"}}>
+      <div className="text-xl py-8 bg-blue-400 text-center text-white h-full" style={{fontFamily: "'Salsa', cursive"}}>
         <footer>
           Made with <span style={{color: "red"}}>❤</span> by Harshul Jain
         </footer>
