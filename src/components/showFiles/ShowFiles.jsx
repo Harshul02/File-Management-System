@@ -1,15 +1,17 @@
 import React from 'react'
 import FetchFiles from '../hooks/FetchFiles'
 import { AiFillFolder } from "react-icons/ai";
-import { FaFileAlt } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
+import { UserAuth } from '../../context/AuthContext';
 
 
 const ShowFiles = ({parentId}) => {
-    console.log(parentId);
+    console.log(parentId)
     const navigate = useNavigate();
+    const {user} = UserAuth();
+    console.log(user, user.email)
 
-    const {fileList} = FetchFiles(parentId);
+    const {fileList} = FetchFiles(parentId, user.email);
     console.log(fileList);
 
 

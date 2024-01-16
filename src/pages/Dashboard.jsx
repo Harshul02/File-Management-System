@@ -1,13 +1,9 @@
 import React from 'react'
-import { UserAuth } from '../context/AuthContext'
 import NavBar from '../components/NavBar';
 import UploadFiles from '../components/files/UploadFiles';
 import ShowFiles from '../components/showFiles/ShowFiles';
 
 const Dashboard = () => {
-
-    const {user} = UserAuth();
-    console.log(user);
 
   return (
     <div>

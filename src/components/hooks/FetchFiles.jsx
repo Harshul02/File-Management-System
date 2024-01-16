@@ -4,10 +4,18 @@ import { database } from "../../firebase";
 
 let files = collection(database, "files");
 
-const FetchFiles = (parentId) => {
+const FetchFiles = (parentId, userEmail) => {
     console.log(parentId)
     const [fileList, setFileList] = useState([]);
-    // console.log(files);
+    console.log(userEmail);
+
+    const filterWithoutParent = (item) =>{
+        console.log(item, userEmail);
+        return item.parentId === "" && (item.userEmail === userEmail)
+    }
+    const filterWithParent = (item) =>{
+        return item.parentId === parentId && (item.userEmail === userEmail) 
+    }
 
     const getFolders = () => {
 
@@ -20,7 +28,7 @@ const FetchFiles = (parentId) => {
                     })
                     .filter(
                       (item) =>
-                        item.parentId === ""
+                        {return filterWithoutParent(item)}
                     )
                 );
               });
@@ -33,7 +41,7 @@ const FetchFiles = (parentId) => {
                     })
                     .filter(
                       (item) =>
-                        item.parentId === parentId
+                        {return filterWithParent(item)}
                     )
                 );
               });
@@ -43,7 +51,7 @@ const FetchFiles = (parentId) => {
       useEffect(() => {
         getFolders();
         // console.log(getFolders());
-      }, [parentId]);
+      }, [parentId, userEmail]);
     
       return { fileList };
 }

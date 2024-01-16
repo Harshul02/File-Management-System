@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import FileUpload from '../API/FileUpload';
 import Progress from '../Progress';
 import { addFolder } from '../API/Firestore';
+import { UserAuth } from '../../context/AuthContext';
 
 const UploadFiles = ({parentId}) => {
 
@@ -9,11 +10,14 @@ const UploadFiles = ({parentId}) => {
     const [isFolderVisible, setFolderVisible] = useState(false);
     const [progress, setProgress] = useState(0);
     const [folderName, setFolderName] = useState("");
+    const {user} = UserAuth();
+    console.log(user);
+    console.log(user?.email)
 
     const handleUploadFile = async (event)=>{
         let file = event.target.files?.[0];
         console.log(file);
-        FileUpload(file, setProgress, parentId);
+        FileUpload(file, setProgress, parentId, user.email);
     }
 
     const uploadFolder = () => {
@@ -22,6 +26,7 @@ const UploadFiles = ({parentId}) => {
           isFolder: true,
           fileList: [],
           parentId: parentId || "",
+          userEmail: user?.email,
         };
     
         addFolder(payload);
