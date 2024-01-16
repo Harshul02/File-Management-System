@@ -6,7 +6,7 @@ import { UserAuth } from '../context/AuthContext';
 const Login = () => {
     const navigate = useNavigate();
 
-    const backgroundImageUrl = 'https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg';
+    // const backgroundImageUrl = 'https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg';
 
     const [formData, setFormData] = useState({
         email: '',
@@ -39,14 +39,14 @@ const Login = () => {
       <Toaster />
         <section className="bg-gray-50 dark:bg-gray-900"
         style={{
-          backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0.8)), url(${backgroundImageUrl})`,
+          backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0.8)))`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}>
     <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
         <Link to="#" className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
-            <img className="w-12 h-12 mr-2" src="https://img.freepik.com/free-vector/yellow-house_1110-691.jpg?w=740&t=st=1700549866~exp=1700550466~hmac=49ba49076a52603bc22a57463b23bf0eed2208a2aa7384bf04ebb09474dd5854" alt="logo" />
-            GetHome
+            <img className="w-12 h-12 mr-2" src="https://play-lh.googleusercontent.com/2oyw6who4WdYH2INRG1qoYS3nvC0hWOHlGC50GEADfhnXonDrCLKg_eEVT5fWqAK4ME" alt="logo" />
+            File Manager
         </Link>
         <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
             <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
