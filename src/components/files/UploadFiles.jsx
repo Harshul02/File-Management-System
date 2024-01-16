@@ -3,7 +3,7 @@ import FileUpload from '../API/FileUpload';
 import Progress from '../Progress';
 import { addFolder } from '../API/Firestore';
 
-const UploadFiles = () => {
+const UploadFiles = ({parentId}) => {
 
     const [isFileVisible, setIsFileVisible] = useState(false);
     const [isFolderVisible, setFolderVisible] = useState(false);
@@ -13,7 +13,7 @@ const UploadFiles = () => {
     const handleUploadFile = async (event)=>{
         let file = event.target.files?.[0];
         console.log(file);
-        FileUpload(file, setProgress);
+        FileUpload(file, setProgress, parentId);
     }
 
     const uploadFolder = () => {
@@ -21,6 +21,7 @@ const UploadFiles = () => {
           folderName: folderName,
           isFolder: true,
           fileList: [],
+          parentId: parentId || "",
         };
     
         addFolder(payload);

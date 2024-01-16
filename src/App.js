@@ -5,6 +5,7 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import { AuthContextProvider } from "./context/AuthContext";
 import Dashboard from "./pages/Dashboard";
+import FolderPage from "./pages/FolderPage";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />
       <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/folder/:id" element={<FolderPage />} />
       </Routes>
       </AuthContextProvider>
       </BrowserRouter>

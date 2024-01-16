@@ -14,10 +14,10 @@ const Dashboard = () => {
     <NavBar />
     </div>
     <div className='mt-20'>
-    <UploadFiles />
+    <UploadFiles parentId=''/>
     </div>
     <div>
-        <ShowFiles />
+        <ShowFiles parentId=''/>
     </div>
     </div>
   )

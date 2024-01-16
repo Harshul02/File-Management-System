@@ -4,26 +4,46 @@ import { database } from "../../firebase";
 
 let files = collection(database, "files");
 
-const FetchFiles = () => {
+const FetchFiles = (parentId) => {
+    console.log(parentId)
     const [fileList, setFileList] = useState([]);
     // console.log(files);
 
     const getFolders = () => {
+
+        if(!parentId){
             onSnapshot(files, (response) => {
-              setFileList(
-                response.docs
-                  .map((item) => {
-                    return { ...item.data(), id: item.id };
-                  })
-                  
-              );
-            });
+                setFileList(
+                  response.docs
+                    .map((item) => {
+                      return { ...item.data(), id: item.id };
+                    })
+                    .filter(
+                      (item) =>
+                        item.parentId === ""
+                    )
+                );
+              });
+        }else{
+            onSnapshot(files, (response) => {
+                setFileList(
+                  response.docs
+                    .map((item) => {
+                      return { ...item.data(), id: item.id };
+                    })
+                    .filter(
+                      (item) =>
+                        item.parentId === parentId
+                    )
+                );
+              });
+        }
       };
 
       useEffect(() => {
         getFolders();
         // console.log(getFolders());
-      }, []);
+      }, [parentId]);
     
       return { fileList };
 }
